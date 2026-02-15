@@ -20,7 +20,7 @@ import PaginatedItems from "../Pagination";
 
 const Shop = () => {
   return (
-    <div className="pt-[225px]">
+    <div className="pt-20">
       <Container>
         <div className="pb-[130px]">
           <h3 className="text-[#262626] text-[49px] font-dmSan font-bold pb-4">
