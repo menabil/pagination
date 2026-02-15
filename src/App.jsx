@@ -12,7 +12,6 @@ function App() {
         <Route path="/" element={<Rootlayouts />}>
           <Route index element={<Home />} />
           <Route path="shop" element={<Shop />} />
-
           <Route path="*" element={<Error />} />
         </Route>
       </Routes>
