@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
 import ReactPaginate from "react-paginate";
 import data from "/src/data/product";
-
+import Product from "./Product";
 // Example items, to simulate fetching from another resources.
-const items = [data];
+// const items = [data];
 
 function Items({ currentItems }) {
   return (
     <>
-      {currentItems &&
-        currentItems.map((item) => (
-          <div>
-            <h3>Item #{item}</h3>
-          </div>
-        ))}
+      <div className="flex items-center flex-wrap gap-x-7.5 gap-y-12.5 justify-center">
+        {currentItems &&
+          currentItems.map((item) => (
+            <div className={"w-[31%]"}>
+              <Product
+                proImg={item.proImg}
+                badgeText={item.badgeText}
+                proTitle={item.proTitle}
+                proPrice={item.proPrice}
+                proColor={item.proColor}
+              />
+            </div>
+          ))}
+      </div>
     </>
   );
 }
@@ -29,12 +36,12 @@ function PaginatedItems({ itemsPerPage }) {
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage;
   console.log(`Loading items from ${itemOffset} to ${endOffset}`);
-  const currentItems = items.slice(itemOffset, endOffset);
-  const pageCount = Math.ceil(items.length / itemsPerPage);
+  const currentItems = data.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(data.length / itemsPerPage);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % items.length;
+    const newOffset = (event.selected * itemsPerPage) % data.length;
     console.log(
       `User requested page number ${event.selected}, which is offset ${newOffset}`,
     );
@@ -44,15 +51,23 @@ function PaginatedItems({ itemsPerPage }) {
   return (
     <>
       <Items currentItems={currentItems} />
-      <ReactPaginate
-        breakLabel="..."
-        nextLabel=""
-        onPageChange={handlePageClick}
-        pageRangeDisplayed={4}
-        pageCount={pageCount}
-        previousLabel=""
-        renderOnZeroPageCount={null}
-      />
+      <div className="flex justify-between items-center py-[50px]">
+        <ReactPaginate
+          containerClassName="flex items-center"
+          pageLinkClassName="px-3.5 py-2 mr-4 text-xl border-[#F0F0F0] border text-[#737373] cursor-pointer"
+          breakLabel="..."
+          breakClassName="px-3.5 py-2 mr-4 text-xl border-none text-[#737373]"
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={4}
+          pageCount={pageCount}
+          renderOnZeroPageCount={null}
+          previousLabel=""
+          nextLabel=""
+        />
+        <p className="text-[#767676] text-[16px] font-dmSan pr-3.5">
+          Products from {itemOffset + 1} to {endOffset} of {data.length}
+        </p>
+      </div>
     </>
   );
 }
