@@ -7,15 +7,6 @@ import { GoDotFill } from "react-icons/go";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { TiThList } from "react-icons/ti";
 import Product from "../Product";
-import newPro1 from "/src/assets/newPro1.png";
-import newPro7 from "/src/assets/newPro7.png";
-import newPro11 from "/src/assets/newPro11.png";
-import newPro12 from "/src/assets/newPro12.png";
-import newPro10 from "/src/assets/newPro10.png";
-import newPro8 from "/src/assets/newPro8.png";
-import newPro9 from "/src/assets/newPro9.png";
-import newPro13 from "/src/assets/newPro13.png";
-import newPro14 from "/src/assets/newPro14.png";
 import PaginatedItems from "../Pagination";
 
 const Shop = () => {
@@ -26,7 +17,9 @@ const Shop = () => {
           <h3 className="text-[#262626] text-[49px] font-dmSan font-bold pb-4">
             Products
           </h3>
-          <p className="text-[#767676] text-sm font-dmSan">Home > Products</p>
+          <p className="text-[#767676] text-sm font-dmSan">
+            Home {">"} Products
+          </p>
         </div>
         <Flex className={"items-start"}>
           <div className="w-[30%]">
@@ -224,10 +217,10 @@ const Shop = () => {
             </Flex>
 
             <div className="">
-                 <PaginatedItems itemsPerPage={12} />
+              <PaginatedItems itemsPerPage={12} />
             </div>
 
-            <Flex className={"justify-between"}>
+            {/* <Flex className={"justify-between"}>
               <div className="flex items-center">
                 <div className=" px-[15px] py-[9px] mr-4 text-xl bg-[#262626] text-white">
                   1
@@ -253,7 +246,7 @@ const Shop = () => {
                   Products from 1 to 12 of 80
                 </p>
               </div>
-            </Flex>
+            </Flex> */}
           </div>
         </Flex>
       </Container>
