@@ -65,7 +65,8 @@ function PaginatedItems({ itemsPerPage }) {
           nextLabel=""
         />
         <p className="text-[#767676] text-[16px] font-dmSan pr-3.5">
-          Products from {itemOffset + 1} to {endOffset} of {data.length}
+          Products from {itemOffset + 1} to{" "}
+          {endOffset < data.length ? endOffset : data.length} of {data.length}
         </p>
       </div>
     </>
