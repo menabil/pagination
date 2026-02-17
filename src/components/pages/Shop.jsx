@@ -1,12 +1,10 @@
 import Container from "../Container";
 import Flex from "../Flex";
-import Images from "../Images";
 import { FaPlus } from "react-icons/fa";
 import { MdOutlineArrowDropUp } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
 import { RiLayoutGridFill } from "react-icons/ri";
 import { TiThList } from "react-icons/ti";
-import Product from "../Product";
 import PaginatedItems from "../Pagination";
 
 const Shop = () => {
