@@ -54,7 +54,7 @@ function PaginatedItems({ itemsPerPage }) {
       <div className="flex justify-between items-center py-[50px]">
         <ReactPaginate
           containerClassName="flex items-center"
-          pageLinkClassName="px-3.5 py-2 mr-4 text-xl border-[#F0F0F0] border text-[#737373] cursor-pointer"
+          pageLinkClassName="px-3.5 py-2 mr-4 text-xl border-[#F0F0F0] border text-[#737373] bg-[#fff] cursor-pointer"
           breakLabel="..."
           breakClassName="px-3.5 py-2 mr-4 text-xl border-none text-[#737373]"
           onPageChange={handlePageClick}
@@ -63,6 +63,8 @@ function PaginatedItems({ itemsPerPage }) {
           renderOnZeroPageCount={null}
           previousLabel=""
           nextLabel=""
+          marginPagesDisplayed={1}
+          activeClassName=""
         />
         <p className="text-[#767676] text-[16px] font-dmSan pr-3.5">
           Products from {itemOffset + 1} to{" "}
